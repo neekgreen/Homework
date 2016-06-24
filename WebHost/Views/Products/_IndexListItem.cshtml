@@ -1,0 +1,12 @@
+﻿@model Domain.Features.Products.ListItem
+
+<tr>
+    <td>
+        <a href="@Url.Action("update", new { Model.Id })">
+            @Html.HtmlTags().Display(t => t.CommonName)
+        </a>
+    </td>
+    <td>@Html.HtmlTags().Display(t => t.UnitPrice)</td>
+    <td>@Html.HtmlTags().Display(t => t.Created)</td>
+    <td>@Html.HtmlTags().Display(t => t.LastUpdated)</td>
+</tr>

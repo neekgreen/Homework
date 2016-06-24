@@ -1,0 +1,68 @@
+﻿@model PaginableCollections.IPaginable
+@{
+    //# Guess this should be here, as it is presentation logic. :(
+    const int MaximumPageNumbersToDisplay = 5;
+
+    var firstPageToDisplay = 1;
+    var lastPageToDisplay = Model.TotalPageCount;
+    var pageNumbersToDisplay = lastPageToDisplay;
+
+    if (Model.TotalPageCount > MaximumPageNumbersToDisplay)
+    {
+        var maxPageNumbersToDisplay = MaximumPageNumbersToDisplay;
+        firstPageToDisplay = Model.PageNumber - maxPageNumbersToDisplay / 2;
+        if (firstPageToDisplay < 1)
+        {
+            firstPageToDisplay = 1;
+        }
+        pageNumbersToDisplay = maxPageNumbersToDisplay;
+        lastPageToDisplay = firstPageToDisplay + pageNumbersToDisplay - 1;
+        if (lastPageToDisplay > Model.TotalPageCount)
+        {
+            firstPageToDisplay = Model.TotalPageCount - maxPageNumbersToDisplay + 1;
+        }
+    }
+
+    var totalPageNumber = Model.TotalPageCount;
+    if (totalPageNumber == 0)
+    {
+        totalPageNumber = 1;
+    }
+}
+
+<div>
+    <ul class="pagination">
+        <li>
+            <a name="page-number" href="#" data-page-number="1">First</a>
+        </li>
+
+        @for (int i = firstPageToDisplay; i <= firstPageToDisplay + pageNumbersToDisplay - 1; i++)
+        {
+            if (i == Model.PageNumber)
+            {
+                <li class="active">
+                    <a name="page-number" href="#" data-page-number="@i">@i</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a name="page-number" href="#" data-page-number="@i">@i</a>
+                </li>
+            }
+        }
+
+        <li>
+            <a name="page-number" href="#" data-page-number="@Model.TotalPageCount">Last</a>
+
+
+        </li>
+
+    </ul>
+
+    @*<div class="page-count">
+        page: @model.pagenumber of @totalpagenumber
+    </div>*@
+
+
+</div>

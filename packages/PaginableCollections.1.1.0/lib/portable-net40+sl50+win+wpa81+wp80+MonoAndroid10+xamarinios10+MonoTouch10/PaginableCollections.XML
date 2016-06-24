@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PaginableCollections</name>
+    </assembly>
+    <members>
+        <member name="T:PaginableCollections.EmptyPaginable`1">
+            <summary>
+            Represents an empty paginable collection.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:PaginableCollections.EmptyPaginable`1.#ctor">
+            <summary>
+            Create new empty paginable collection.
+            </summary>
+        </member>
+        <member name="T:PaginableCollections.IPaginable">
+            <summary>
+            Non-generic contract representing a page of data.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.TotalPageCount">
+            <summary>
+            Total number of pages.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.TotalItemCount">
+            <summary>
+            Total item count.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.PageNumber">
+            <summary>
+            Current page number.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.ItemCountPerPage">
+            <summary>
+            Requested item count per page.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.IsFirstPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.IsLastPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.HasPreviousPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.IPaginable.HasNextPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PaginableCollections.IPaginable`1">
+            <summary>
+            Generic contract representing a page of data.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:PaginableCollections.IPaginable`1.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:PaginableCollections.IPaginable`1.Count">
+            <summary>
+            Number of items in this paginable.
+            </summary>
+        </member>
+        <member name="T:PaginableCollections.QueryableBasedPaginable`1">
+            <summary>
+            This paginable that uses the underlying data source to calculate pagination statistics.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:PaginableCollections.QueryableBasedPaginable`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="queryable"></param>
+            <param name="pageNumber"></param>
+            <param name="itemCountPerPage"></param>
+        </member>
+        <member name="M:PaginableCollections.QueryableBasedPaginable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="superset"></param>
+            <param name="pageNumber"></param>
+            <param name="itemCountPerPage"></param>
+        </member>
+        <member name="T:PaginableCollections.Paginable`1">
+            <summary>
+            Base class represents page of items.
+            </summary>
+            <typeparam name="T">The type of items in this paginable.</typeparam>
+        </member>
+        <member name="M:PaginableCollections.Paginable`1.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PaginableCollections.Paginable`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.TotalItemCount">
+            <summary>
+            Total number of items.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.PageNumber">
+            <summary>
+            Requested page number.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.ItemCountPerPage">
+            <summary>
+            Requested number of items per page.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.Count">
+            <summary>
+            Number of items in this result set.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.TotalPageCount">
+            <summary>
+            Total number of pages.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.IsFirstPage">
+            <summary>
+            Identifies the first page.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.IsLastPage">
+            <summary>
+            Identifies the last page.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.HasPreviousPage">
+            <summary>
+            Identifies if a previous page is available.
+            </summary>
+        </member>
+        <member name="P:PaginableCollections.Paginable`1.HasNextPage">
+            <summary>
+            Identifies if a next page is available.
+            </summary>
+        </member>
+        <member name="T:PaginableCollections.Paginable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PaginableCollections.Paginable.Empty``1">
+            <summary>
+            Returns new empty paginable collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PaginableCollections.PaginableExtensions.ToPaginable``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Convert queryable to paginable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable"></param>
+            <param name="pageNumber"></param>
+            <param name="itemCountPerPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaginableCollections.PaginableExtensions.ToPaginable``1(System.Linq.IQueryable{``0},PaginableCollections.IPaginableInfo)">
+            <summary>
+            Convert queryable to paginable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="paginableInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PaginableCollections.StaticPaginable`1">
+            <summary>
+            Encapsulates a collection of data.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:PaginableCollections.StaticPaginable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="subset"></param>
+            <param name="pageNumber"></param>
+            <param name="itemCountPerPage"></param>
+            <param name="totalItemCount"></param>
+        </member>
+    </members>
+</doc>

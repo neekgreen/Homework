@@ -1,0 +1,8 @@
+﻿@model Domain.Features.Carts.Summary.Item
+
+<tr>
+    <td>@Html.HtmlTags().Display(t => t.CommonName)</td>
+    <td>@Html.HtmlTags().Display(t => t.UnitPrice)</td>
+    <td>@Html.HtmlTags().Display(t => t.Quantity)</td>
+    <td>@Html.HtmlTags().Display(t => t.TotalPrice)</td>
+</tr>

@@ -1,0 +1,8 @@
+﻿@model Domain.Features.PastOrders.ListItem
+
+<tr>
+    <td>@Model.OrderNumber</td>
+    <td>@Model.ItemCount</td>
+    <td>@Html.HtmlTags().Display(t => t.OrderTotal)</td>
+    <td>@Html.HtmlTags().Display(t => t.Created)</td>
+</tr>

@@ -1,0 +1,31 @@
+﻿@model Domain.Features.AvailableProducts.ListItem
+
+
+<tr>
+    <td>
+        <a href="@Url.Action("update", new { Model.Id })">
+            @Html.HtmlTags().Display(t => t.CommonName)
+        </a>
+    </td>
+    <td>@Html.HtmlTags().Display(t => t.UnitPrice)</td>
+    <td>
+        <form class="cart-form form-inline" action="@Url.Action("Update", "Carts")" method="post">
+
+            @Html.HtmlTags().Input(t => t.Id).Name("ProductId")
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        @Html.HtmlTags().InputBlock(t => t.Quantity)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8">
+                        <button class="btn btn-default cart-submit" type="submit">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </td>
+</tr>

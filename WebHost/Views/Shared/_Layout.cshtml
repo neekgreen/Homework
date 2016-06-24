@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My App</title>
+
+    <link href="~/content/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="~/content/yellowing/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">
+                <h1>Ordering System</h1>
+            </div>
+        </div>
+        <div id="page">
+            <div id="page-bgtop">
+                <div id="page-bgbtm">
+                    <div id="menu">
+                        <ul>
+                            <li class="current_page_item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                            <li><a href="@Url.Action("Index","Products")">Products</a></li>
+                            <li><a href="@Url.Action("Index","AvailableProducts")">Orders</a></li>
+                            <li><a href="@Url.Action("Index","PastOrders")">Past Orders</a></li>
+                        </ul>
+                    </div>
+                    <div id="container body-content">
+                        @RenderBody()
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="~/content/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/content/scripts/bootstrap.min.js"></script>
+    <script src="~/content/scripts/app-form.js"></script>
+    <script src="~/content/scripts/app-paginable.js"></script>
+    <script src="~/content/scripts/app-filterable.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿@model PaginableCollections.IPaginable
+
+<select class="form-control" name="item-count-per-page" data-item-count-per-page="@Model.ItemCountPerPage">
+    <option value="10" @if (Model.ItemCountPerPage == 10) { <text> selected</text>}>10</option>
+    <option value="10" @if (Model.ItemCountPerPage == 20) { <text> selected</text>}>20</option>
+    <option value="30" @if (Model.ItemCountPerPage == 30) { <text> selected</text>}>30</option>
+    <option value="50" @if (Model.ItemCountPerPage == 50) { <text> selected</text>}>50</option>
+</select>

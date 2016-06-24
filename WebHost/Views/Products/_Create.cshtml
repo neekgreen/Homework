@@ -1,0 +1,23 @@
+﻿@model Domain.Features.Products.CreateCommand
+
+<form id="form" action="@Url.Action("create")" method="post">
+    <div class="row">
+        <div class="large-6 columns">
+            @Html.HtmlTags().FormBlock(t => t.CommonName)
+        </div>
+        <div class="large-6 columns">
+            @Html.HtmlTags().FormBlock(t => t.UnitPrice)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns ta-center">
+            <button type="submit" href="#" class="btn btn-default form-submit">
+                <i class="icon-plus"></i>
+                Add 
+            </button>
+            <br />
+            <a href="@Url.Action("index")">cancel</a>
+        </div>
+    </div>
+</form>

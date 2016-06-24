@@ -1,0 +1,34 @@
+﻿@model Domain.Features.Carts.Summary
+
+
+@if(Model.Items.Any())
+{ 
+
+    <div id="cart" data-paginable-url="@Url.Action("Index")">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Common Name</td>
+                    <td>Unit Price</td>
+                    <td>Quantity</td>
+                    <td>Total Price</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <text>
+                        @Html.Partial("_IndexListItem", item)
+                    </text>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <form method="post" action="@Url.Action("submit")">
+        <button class="btn btn-default form-submit" type="submit">Submit Order</button>
+    </form>
+    
+}

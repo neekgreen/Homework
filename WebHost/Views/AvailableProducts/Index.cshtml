@@ -1,0 +1,15 @@
+﻿@model WebHost.Models.AvailableProducts.IndexViewModel
+
+@{
+    ViewBag.Title = "Available Products";
+}
+
+<h3>Items available to purchase</h3>
+
+<div id="paginable-content">
+    @Html.Partial("_Index")
+</div>
+
+<div id="cart-content">
+    @Html.Action("Index", "Carts")
+</div>

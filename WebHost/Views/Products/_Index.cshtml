@@ -1,0 +1,68 @@
+﻿@model WebHost.Models.Products.IndexViewModel
+
+<div id="paginable-content">
+
+    <div id="paginable" data-paginable-url="@Url.Action("Index")">
+
+        <div class="row">
+            <div class="col-md-10">
+            </div>
+            <div class="col-md-2">
+                @Html.Partial("_ItemCountPerPage", Model.Items)
+            </div>
+        </div>
+        <nav>
+            @Html.Partial("_PaginationSummary", Model.Items)
+        </nav>
+
+        <form class="filterable">
+            <input type="hidden" id="pageNumber" name="pageNumber" value="@Model.Items.PageNumber" />
+            <input type="hidden" id="itemCountPerPage" name="itemCountPerPage" value="@Model.Items.ItemCountPerPage" />
+        </form>
+
+
+
+        <div class="input-group">
+            <form class="filterable">
+                <input id="filterText" type="text" name="filterText" class="form-control" aria-label="..." value="@Model.FilterText">
+            </form>
+
+            <div class="input-group-btn">
+                <button id="filterableSubmitButton" type="button" class="btn btn-default" aria-label="Search">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                <button id="filterableRemoveButton" type="button" class="btn btn-default" name="clear-filter-text" aria-label="Clear Search">
+                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                </button>
+            </div>
+
+        </div>
+
+        @Html.Partial("_Pagination", Model.Items)
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Common Name</td>
+                    <td>Unit Price</td>
+                    <td>Created</td>
+                    <td>Last Updated</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <text>
+                        @Html.Partial("_IndexListItem", item)
+                    </text>
+                }
+            </tbody>
+        </table>
+
+        <nav>
+            @Html.Partial("_PaginationSummary", Model.Items)
+            @Html.Partial("_Pagination", Model.Items)
+        </nav>
+    </div>
+
+</div>
